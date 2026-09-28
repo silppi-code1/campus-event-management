@@ -26,7 +26,7 @@ function AdminDashboard({ token, user }) {
 
     try {
       // Fetch all events (no pagination limit for dashboard overview)
-      const response = await fetch('http://localhost:5000/api/events?limit=100', {
+      const response = await fetch('/api/events?limit=100', {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
 
@@ -51,7 +51,7 @@ function AdminDashboard({ token, user }) {
     if (!window.confirm(`Are you sure you want to delete "${eventTitle}"?`)) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/events/${eventId}`, {
+      const response = await fetch(`/api/events/${eventId}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });

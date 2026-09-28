@@ -33,7 +33,7 @@ function EditEvent({ token, user }) {
 
   const fetchEvent = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/events/${id}`);
+      const response = await fetch(`/api/events/${id}`);
       const data = await response.json();
 
       if (!response.ok) {
@@ -102,7 +102,7 @@ function EditEvent({ token, user }) {
       }
 
       // API call to update event
-      const response = await fetch(`http://localhost:5000/api/events/${id}`, {
+      const response = await fetch(`/api/events/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -27,7 +27,7 @@ function EventDetails({ token, user }) {
 
   const fetchEvent = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/events/${id}`);
+      const response = await fetch(`/api/events/${id}`);
       const data = await response.json();
 
       if (!response.ok) {
@@ -44,7 +44,7 @@ function EventDetails({ token, user }) {
 
   const checkRegistration = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/registrations/check/${id}`, {
+      const response = await fetch(`/api/registrations/check/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
@@ -59,7 +59,7 @@ function EventDetails({ token, user }) {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/registrations', {
+      const response = await fetch('/api/registrations', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ function EventDetails({ token, user }) {
     setError('');
 
     try {
-      const response = await fetch(`http://localhost:5000/api/registrations/${id}`, {
+      const response = await fetch(`/api/registrations/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -114,7 +114,7 @@ function EventDetails({ token, user }) {
     if (!window.confirm('Are you sure you want to delete this event?')) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/events/${id}`, {
+      const response = await fetch(`/api/events/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });

@@ -26,7 +26,7 @@ function Events({ token, user }) {
 
     try {
       // Build query string with search, category, page, and limit
-      let url = `http://localhost:5000/api/events?page=${page}&limit=${limit}`;
+      let url = `/api/events?page=${page}&limit=${limit}`;
       if (search) url += `&search=${encodeURIComponent(search)}`;
       if (category) url += `&category=${encodeURIComponent(category)}`;
 

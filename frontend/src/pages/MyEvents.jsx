@@ -30,7 +30,7 @@ function MyEvents({ token, user }) {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/registrations/my-events?page=${page}&limit=${limit}`,
+        `/api/registrations/my-events?page=${page}&limit=${limit}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -56,7 +56,7 @@ function MyEvents({ token, user }) {
     if (!window.confirm(`Cancel registration for "${eventTitle}"?`)) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/registrations/${eventId}`, {
+      const response = await fetch(`/api/registrations/${eventId}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });
